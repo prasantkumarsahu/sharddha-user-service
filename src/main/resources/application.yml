@@ -1,0 +1,55 @@
+spring:
+  application:
+    name: USER-SERVICE
+
+  api:
+    version: v1
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true # set to false in production
+
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+
+server:
+  port: 8081
+  servlet:
+    context-path: /user-service/api/${spring.application.api.version:v1}
+
+springdoc:
+  api-docs:
+    path: /api-docs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+
+  instance:
+    metadata-map:
+      contextPath:  ${server.servlet.context-path:}
+      apiDocsPath: ${springdoc.api-docs.path:/v3/api-docs}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
