@@ -2,7 +2,7 @@ package digital.shraddha.service.impl;
 
 import digital.shraddha.exception.ApiException;
 import digital.shraddha.mapper.UserMapper;
-import digital.shraddha.model.dto.UpdateUserRequest;
+import digital.shraddha.model.dto.request.UpdateUserRequest;
 import digital.shraddha.model.dto.UserDto;
 import digital.shraddha.model.entity.UserEntity;
 import digital.shraddha.model.enums.AccountStatus;

@@ -1,6 +1,6 @@
 package digital.shraddha.controller;
 
-import digital.shraddha.model.dto.UpdateUserRequest;
+import digital.shraddha.model.dto.request.UpdateUserRequest;
 import digital.shraddha.model.dto.UserDto;
 import digital.shraddha.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;

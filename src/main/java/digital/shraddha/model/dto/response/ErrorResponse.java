@@ -1,4 +1,4 @@
-package digital.shraddha.model.dto;
+package digital.shraddha.model.dto.response;
 
 import java.time.LocalDateTime;
 

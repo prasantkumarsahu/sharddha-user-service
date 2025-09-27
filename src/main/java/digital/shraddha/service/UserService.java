@@ -1,6 +1,6 @@
 package digital.shraddha.service;
 
-import digital.shraddha.model.dto.UpdateUserRequest;
+import digital.shraddha.model.dto.request.UpdateUserRequest;
 import digital.shraddha.model.dto.UserDto;
 
 import java.util.List;

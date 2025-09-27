@@ -35,6 +35,7 @@ public class UserProfileEntity {
 	@Column (length = 255)
 	private String bio;
 
+	@Builder.Default
 	@OneToMany (
 			mappedBy = "profile",
 			cascade = CascadeType.ALL,

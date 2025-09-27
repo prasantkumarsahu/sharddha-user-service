@@ -1,6 +1,6 @@
 package digital.shraddha.exception;
 
-import digital.shraddha.model.dto.ErrorResponse;
+import digital.shraddha.model.dto.response.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
