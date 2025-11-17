@@ -58,6 +58,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public UserDto getUserByEmailOrUsername(String username) {
+		UserEntity userEntity = userEntityRepo.findByEmailOrUsername(username, username)
+				.orElseThrow(() -> new ApiException(ErrorType.USER_NOT_FOUND,
+						"UserEntity with email or username '" + username + "' not found"));
+		return userMapper.toDto(userEntity);
+	}
+
+	@Override
 	public UserDto getUserByEmail(String email) {
 		UserEntity userEntity = userEntityRepo.findByEmail(email)
 				.orElseThrow(() -> new ApiException(ErrorType.USER_NOT_FOUND,

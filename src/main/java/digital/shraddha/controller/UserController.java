@@ -5,6 +5,7 @@ import digital.shraddha.model.dto.UserDto;
 import digital.shraddha.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping ("/users")
 @RequiredArgsConstructor
@@ -24,6 +26,12 @@ public class UserController {
 	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
 		return ResponseEntity.status(HttpStatus.CREATED)
 				.body(userService.createUser(userDto));
+	}
+
+	@GetMapping("/me")
+	public ResponseEntity<UserDto> getCurrentUser(@RequestHeader("X-USER") String emailOrUsername) {
+		log.info("Fetching current user with identifier: {}", emailOrUsername);
+		return ResponseEntity.ok(userService.getUserByEmailOrUsername(emailOrUsername));
 	}
 
 	@GetMapping ("/{id}")
